@@ -1,0 +1,15 @@
+{
+  "name": "ApiGuide",
+  "version": "0.0.0",
+  "description": "A guide to working with the EDGE10 APi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "@stevegreatrex",
+  "license": "ISC",
+  "dependencies": {
+    "es6-promise": "^2.0.1",
+    "request-promise": "^0.4.0"
+  }
+}
