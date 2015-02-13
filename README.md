@@ -110,3 +110,15 @@ Once a query has been configured and saved you can get the results through the A
 
 ### Running the Query
 Queries are invoked by making a `GET` request to the API with the parameters specified in the query string
+
+```javascript
+request({
+    method: 'GET',
+    url: config.siteUrl + '/api/query?entityType=AllSubjects&dateRangeType=CalendarYear&queryName=' + queryName,
+     headers: {
+        'X-ApiKey': apiKey
+    },
+    json: true
+});
+```
+

@@ -5,7 +5,7 @@
 
 	function getQueryResults(queryName) {
 		return request({
-			url: '/api/query?entityType=AllSubjects&dateRangeType=CalendarYear&queryName=' + queryName + '&'
+			url: '/api/query?entityType=AllSubjects&dateRangeType=CalendarYear&queryName=' + queryName
 		});
 	}
 
