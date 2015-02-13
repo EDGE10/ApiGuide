@@ -8,6 +8,7 @@ This guide serves as an introduction to a few key principles.  For full API docu
 All API methods are accessible over HTTP using your client library of choice.  This documentation includes JavaScript samples for a node-based implementation but the calls will work no matter what client language you are using.
 
 All calls are made with a combination of a resource URL (e.g. `/api/session/[session id]`) and one of 4 HTTP verbs:
+
  * GET to retrieve or query data
  * POST to create new data
  * PUT to update existing data
@@ -18,7 +19,7 @@ There are some exceptions to these rules, but these will serve as a baseline ass
 ### Libraries
 The samples in this documentation will use node along with a polyfill for ES6-style promises.  All dependencies can be installed by running the following from the command line.
 
-```shell
+```sh
 npm install
 ```
 
@@ -27,9 +28,12 @@ The samples all use site-specific configuration which can be found in `samples/s
 
 Once updated, you can run any sample using node, e.g.
 
-```shell
+```sh
 node samples/api-key-authentication.js
 ```
+
+### edge10-request
+Many of the samples use a helper function `edge10-request` that creates a request with some default values and with authentication details taken from the sample file.
 
 ## Authentication
 The API supports 2 authentication mechanisms: Basic and API-key-based.

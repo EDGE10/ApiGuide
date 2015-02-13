@@ -1,22 +1,11 @@
 /*global require:false*/
 
 (function(require) {
-	var request = require('request-promise');
-	var config = require('./sample-config.js');
-
-	if (!config.apiKey) {
-		console.log('Couldnt find an API key stored in the config file.  Have you updated it?');
-		return;
-	}
+	var request = require('./edge10-request');
 
 	function getAllEntities() {
 		return request({
-			method: 'GET',
-			url: config.siteUrl + '/api/entity',
-			headers: {
-				'X-ApiKey': config.apiKey
-			},
-			json: true
+			url: '/api/entity'
 		});
 	}
 
