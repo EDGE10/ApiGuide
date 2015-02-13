@@ -88,3 +88,25 @@ request({
 
 This returns an array with details of every visible entity.
 
+## GET-ing Query Results
+The best way to get data out of EDGE10 is to use a query.
+
+### Configuring a Query
+Queries are set up in the Query Builder in EDGE10 Online and define the data you want to retrieve.  These can include any one of the following 3 query types:
+
+  1. **Session Lists**
+     A list of sessions for one or more entities along with associated data
+  2. **Summaries**
+     Aggregated data over a period of time (e.g. average goals/game, maximum weight, etc.)
+  3. **Data Item Lists**
+     The values for a single data item over time for one or more entities
+
+### Query Parameters
+Once a query has been configured and saved you can get the results through the API by specifying:
+
+ *  the query name
+ *  the entity or entities for whom to run the query
+ *  the date range over which to run the query
+
+### Running the Query
+Queries are invoked by making a `GET` request to the API with the parameters specified in the query string

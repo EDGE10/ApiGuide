@@ -2,6 +2,7 @@
 
 (function(require, module) {
 	var request = require('request-promise');
+	var Promise = require('es6-promise').Promise;
 	var config = require('./sample-config');
 	var _ = require('underscore');
 
@@ -25,7 +26,9 @@
 			headers: {
 				'X-ApiKey': config.apiKey
 			}
-		}, options));
+		}, options)).then(null, function(error) {
+			return Promise.reject(error.response && error.response.body && error.response.body.exceptionMessage || error.message);
+		});
 	}
 
 	module.exports = e10Request;
