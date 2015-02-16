@@ -5,7 +5,7 @@
 
 	function getQueryResults(queryName) {
 		return request({
-			url: '/api/query?entityType=AllSubjects&dateRangeType=CalendarYear&queryName=' + queryName
+			url: '/api/query?entityType=AllSubjects&dateRangeType=offset&dateoffset=-365&queryName=' + queryName
 		});
 	}
 
@@ -21,7 +21,7 @@
 		});
 	}
 
-	getQueryResults('[your query name here]')
+	getQueryResults('EverythingQuery')
 		.then(function(results) {
 			//1 result returned for each entity - in this case, each subject
 			results.forEach(function(table) {

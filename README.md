@@ -95,10 +95,15 @@ The best way to get data out of EDGE10 is to use a query.
 Queries are set up in the Query Builder in EDGE10 Online and define the data you want to retrieve.  These can include any one of the following 3 query types:
 
   1. **Session Lists**
+
      A list of sessions for one or more entities along with associated data
+
   2. **Summaries**
+
      Aggregated data over a period of time (e.g. average goals/game, maximum weight, etc.)
+
   3. **Data Item Lists**
+     
      The values for a single data item over time for one or more entities
 
 ### Query Parameters
@@ -121,4 +126,107 @@ request({
     json: true
 });
 ```
+
+### Query results
+
+The query results are returned in the form of a table, with column, row and cell definitions
+
+```javascript
+var results = {
+  "columns": [
+    { "header": "A Number" },
+    { "header": "A Lookup" }
+  ],
+  "rows": [
+    {
+      "cells": [
+        {
+        "value": 123
+        },
+        {
+          "lookupValues": [
+            {
+              "id": "ead94c47-c5f9-4e9a-bed8-2502daf500b1",
+              "value": "Green",
+              "index": 2,
+              "score": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+```
+
+Cell values are stored in either the `value` property of the cell or in the `lookupValues` array for a lookup type (whether single- or multi-lookup).
+
+If you have run a session list query for multiple subjects, the results are returned as an **array of tables** - one table per subject.
+
+### Metadata
+Depending on the type of the query, each element (the results table itself, each column, row and cell) will contain various items of metadata.  These include (but are not limited to):
+
+ * The contact ID (subject or user) to which the data applies
+ * The session ID from which the data has been acquired
+ * The ID of the attribute definition for the data
+ * The ID of the aggregation definition for the data
+ * The type of the data (numeric, text, boolean, etc.)
+ * Whether or not the data is the result of a calculation
+ * The traffic-light value of the data
+ * etc.
+
+These properties are accessible through the `metadata` property on each item which contains string-value pairs.
+
+## Accessing Sessions
+The Sessions API will most likely be the one of which you make most use.  It allows you to retrieve full (or partial) session data and to make changes to the data, attachments, contacts.
+
+### Retrieving a Session
+Assuming you know the ID of a session - perhaps from query metadata - then getting the data for a session is a simple GET call with the ID supplied.
+
+```javascript
+request({
+    method: 'GET',
+    url: config.siteUrl + '/api/session/' + sessionId,
+     headers: {
+        'X-ApiKey': apiKey
+    },
+    json: true
+});
+```
+
+The data format returned can be quite lengthy so give it a try or check the API documentation for an example.
+
+### Creating a session
+To create a new session you can make a POST call to the same `/api/session` URL with some seed information.
+
+The minimum requirements for creating a new session are:
+
+ * A name for the session
+ * A start and end date
+ * The ID of the session type
+ * At least one contact (subject, user or group).  Note that this is not enforced, but creating a session with no contacts makes it very difficult to find later!
+
+```javascript
+request({
+    method: 'POST',
+    url: config.siteUrl + '/api/session/',
+    body: {
+        sessionDetails: {
+            name: 'session name',
+            start: '2015-01-01T09:00',
+            end: '2015-01-01T10:30',
+            sessionTypeId: '[session type ID]'
+        },
+        contacts: [
+            { contactType: 'User', contactId: '[user`s id]`
+        ]
+    },
+    headers: {
+        'X-ApiKey': apiKey
+    },
+    json: true
+});
+```
+
+The response to the `POST` request will contain additional populated data from the API.  If data items are configured for the template then they will be returned with default values.
 
