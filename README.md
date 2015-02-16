@@ -218,7 +218,7 @@ request({
             sessionTypeId: '[session type ID]'
         },
         contacts: [
-            { contactType: 'User', contactId: '[users id]`
+            { contactType: 'User', contactId: '[users id]` }
         ]
     },
     headers: {
