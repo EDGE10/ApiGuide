@@ -21,7 +21,7 @@
 		});
 	}
 
-	getQueryResults('EverythingQuery')
+	getQueryResults('[query name]')
 		.then(function(results) {
 			//1 result returned for each entity - in this case, each subject
 			results.forEach(function(table) {
