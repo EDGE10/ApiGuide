@@ -41,4 +41,5 @@ Many of the samples use a helper function `edge10-request` that creates a reques
  * [Working with Entities](https://github.com/EDGE10/ApiGuide/wiki/Entities)
  * [Querying Data](https://github.com/EDGE10/ApiGuide/wiki/Queries)
  * [Working with Sessions](https://github.com/EDGE10/ApiGuide/wiki/Sessions)
+ * [Working with Data Items](https://github.com/EDGE10/ApiGuide/wiki/DataItems)
 
