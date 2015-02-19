@@ -3,6 +3,9 @@
 (function(require) {
   var request = require('./edge10-request');
 
+  /**
+   * Gets all available entities in the system
+   */
   function getAllEntities() {
     return request({
       url: '/api/entity'
