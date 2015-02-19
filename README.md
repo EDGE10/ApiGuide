@@ -37,8 +37,8 @@ Many of the samples use a helper function `edge10-request` that creates a reques
 
 ## Further Reading
 
- * [Managing Authentication](/EDGE10/ApiGuide/wiki/Authentication)
- * [Working with Entities](/EDGE10/ApiGuide/wiki/Entities)
- * [Querying Data](/EDGE10/ApiGuide/wiki/Queries)
- * [Working with Sessions](/EDGE10/ApiGuide/wiki/Sessions)
+ * [Managing Authentication](https://github.com/EDGE10/ApiGuide/wiki/Authentication)
+ * [Working with Entities](https://github.com/EDGE10/ApiGuide/wiki/Entities)
+ * [Querying Data](https://github.com/EDGE10/ApiGuide/wiki/Queries)
+ * [Working with Sessions](https://github.com/EDGE10/ApiGuide/wiki/Sessions)
 
