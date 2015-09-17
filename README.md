@@ -2,7 +2,7 @@
 
 The EDGE10 API allows developers to query and manipulate data and configuration with an EDGE10 Online environment.
 
-This guide serves as an introduction to a few key principles.  For full API documentation you can navigate to `http://[your site address]/api/help` (administrators only).
+This guide serves as an introduction to a few key principles.  For full API documentation you can navigate to `http://[your site address]/swagger`.
 
 ## Basics
 All API methods are accessible over HTTP using your client library of choice.  This documentation includes JavaScript samples for a node-based implementation but the calls will work no matter what client language you are using.
