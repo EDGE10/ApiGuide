@@ -1,7 +1,7 @@
 /*global require:false*/
 
 (function(require) {
-  var request = require('./edge10-request');
+  var request = require('../edge10-request');
 
   /**
    * Gets all visible data items in the system

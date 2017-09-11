@@ -1,7 +1,7 @@
 /*global require:false*/
 
 (function(require) {
-  var request = require('./edge10-request');
+  var request = require('../edge10-request');
 
   /**
    * Gets all available entities in the system

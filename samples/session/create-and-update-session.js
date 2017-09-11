@@ -1,7 +1,7 @@
 /*global require:false*/
 
 (function(require) {
-  var request = require('./edge10-request');
+  var request = require('../edge10-request');
 
   function createSession() {
     return request({
@@ -31,7 +31,7 @@
     .then(function(session) {
       return getSession(session.sessionDetails.id);
     })
-    .then(function (sessionData) {
+    .then(function(sessionData) {
       console.log('Retrieved session: ');
       console.log(sessionData);
     });

@@ -1,7 +1,7 @@
 /*global require:false*/
 
 (function(require) {
-  var request = require('./edge10-request');
+  var request = require('../edge10-request');
 
   /**
    * Updates the data item with the specified ID based on the new definition.
@@ -14,11 +14,12 @@
     });
   }
 
- updateDataItem('[data item id]', {
+  updateDataItem('[data item id]', {
     id: '[data item id]',
     name: 'Updated name',
     description: 'Updated description'
-  }).then(function() {
-   console.log('Updated successfully');
- });
+  })
+  .then(function() {
+    console.log('Updated successfully');
+  });
 }(require));
