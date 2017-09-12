@@ -1,8 +1,14 @@
 /*global require:false*/
 
+/**
+* Refer to http://testenvironment.edge10hosted.com/swagger/ui/index#/Session
+*/
 (function(require) {
   var request = require('../edge10-request');
 
+  /**
+   * Creates a new session with the specified data
+   */
   function createSession() {
     return request({
       method: 'POST',
@@ -21,6 +27,24 @@
     });
   }
 
+  
+  /**
+   * Updates an existing session specified by sessionId
+   */
+  function updateSessionById(sessionId) {
+    return request({
+      method: 'PUT',
+      url: '/api/session/' + sessionId,
+      body:{
+        sessionDetails: {
+          name: 'session name',
+          start: '2015-01-01T09:00',
+          end: '2015-01-01T10:30',
+        },
+      }
+    });
+  }
+
   function getSession(sessionId) {
     return require({
       url: '/api/session/' + sessionId
@@ -29,6 +53,11 @@
 
   createSession()
     .then(function(session) {
+      console.log('Created session: ' + session.sessionDetails.name);      
+      
+      updateSessionById(session.sessionDetails.name);
+      console.log('Updated session: ' + session.sessionDetails.name);
+      
       return getSession(session.sessionDetails.id);
     })
     .then(function(sessionData) {

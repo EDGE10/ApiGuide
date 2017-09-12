@@ -1,8 +1,14 @@
 /*global require:false*/
 
+/**
+* Refer to http://testenvironment.edge10hosted.com/swagger/ui/index#/Entity
+*/
 (function(require) {
   var request = require('.../edge10-request');
 
+  /**
+   * Creates a new group with the specified data
+   */
   function createGroup() {
     return request({
       method: 'POST',
@@ -11,45 +17,17 @@
         id: '[group Id]',
         name: 'string',
         description: 'string',
-        singleAssignments: true,
         subjects: [
           {
             contactType: 'User',
-            dateOfBirth: '2017-09-11T10:38:38.239Z',
             title: 'string',
-            gender: 'string',
-            profession: 'string',
             groupIds: [
               '[group Ids]'
             ],
-            address: 'string',
-            city: 'string',
-            region: 'string',
-            postcode: 'string',
-            country: 'string',
-            id: 'string',
             firstName: 'string',
             lastName: 'string',
-            emailAddress: 'string',
-            mobileNumber: 'string',
-            username: 'string',
-            profile: {}
           }
-        ],
-        users: [
-          {
-            contactType: 'Unknown',
-            accessLevel: 'Standard',
-            id: '[user`s ID]',
-            firstName: 'string',
-            lastName: 'string',
-            emailAddress: 'string',
-            mobileNumber: 'string',
-            username: 'string',
-            profile: {}
-          }
-        ],
-        permissionLevel: 'None'
+        ]
       }
     });
   }
@@ -60,6 +38,9 @@
     });
   }
 
+  /**
+   * Updates an existing group specified by groupId
+   */
   function updateGroupById(groupId) {
     return request({
       method: 'PUT',
@@ -73,11 +54,13 @@
 
   createGroup()
     .then(function(group) {
+      console.log('Created group: ' + group.name);      
+     
+      updateGroupById(group.id);
+      console.log('Updated group: ' + group.name);
+
       return getGroup(group.id);
-    })
-    .then(function(group) {
-      return updateGroupById(group.id);
-    })
+      })
     .then(function(groupData) {
       console.log('Retrieved group: ');
       console.log(groupData);

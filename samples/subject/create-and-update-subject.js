@@ -1,8 +1,14 @@
 /*global require:false*/
 
+/**
+* Refer to http://testenvironment.edge10hosted.com/swagger/ui/index#/Entity
+*/
 (function(require) {
   var request = require('../edge10-request');
 
+  /**
+   * Creates a new subject with the specified data
+   */
   function createSubject() {
     return request({
       method: 'POST',
@@ -26,6 +32,9 @@
     });
   }
 
+  /**
+   * Updates the subject data for the subject with an Id of 'subjectId'
+   */
   function updateSubjectById(subjectId) {
     return request({
       method: 'PUT',
@@ -39,10 +48,12 @@
 
   createSubject()
     .then(function(subject) {
+      console.log('Created subject: ' + subject.name);      
+      
+      updateSubjectById(subject.id);
+      console.log('Updated subject: ' + subject.name);
+      
       return getSubject(subject.id);
-    })
-    .then(function(subject) {
-      return updateSubjectById(subject.id);
     })
     .then(function(subjectData) {
       console.log('Retrieved subject: ');
