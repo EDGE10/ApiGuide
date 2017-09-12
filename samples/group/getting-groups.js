@@ -1,5 +1,8 @@
 /*global require:false*/
 
+/**
+* http://testenvironment.edge10hosted.com/swagger/ui/index#!/Entity/getGroups
+*/
 (function(require) {
   var request = require('../edge10-request');
 
