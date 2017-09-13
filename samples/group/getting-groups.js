@@ -1,13 +1,13 @@
 /*global require:false*/
 
 /**
-* http://testenvironment.edge10hosted.com/swagger/ui/index#!/Entity/getGroups
+* Refer to http://testenvironment.edge10hosted.com/swagger/ui/index#!/Entity/getGroups
 */
 (function(require) {
   var request = require('../edge10-request');
 
   /**
-   * Gets all groups that are visibile to the authenticated in the system
+   * Gets all groups that are visible to the authenticated in the system
    */
   function getAllGroups() {
     return request({
