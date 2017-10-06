@@ -17,6 +17,7 @@
 
   getContactById('contact Id')
     .then(function(contact) {
-      console.log(contact.id + ' ' + firstName);
+      console.log(`Retrieved contact ${contact.id}, ${firstName}`);
+      return contact;
     });
 }(require));

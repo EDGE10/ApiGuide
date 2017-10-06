@@ -19,6 +19,6 @@
     .then(function(entities) {
       entities
         .map(function(e) { return e.firstName + ' ' + e.lastName; })
-        .forEach(function(name) { console.log(name); })
+        .forEach(function(name) { console.log(name); });
     });
 }(require));
