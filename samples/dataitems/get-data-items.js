@@ -29,11 +29,12 @@
     .then(function(dataItems) {
       dataItems
         .map(function(d) { return d.name; })
-        .forEach(function(name) { console.log(name); })
+        .forEach(function(name) { console.log(name); });
     });
 
-  getDataItemByNameOrId('data item name')
+  getDataItemByNameOrId('[nameOrId]')
     .then(function(dataItem) {
-      console.log(dataItem);
+      console.log(`Retrieved DataItem : ${dataItem.id}`);
+      return dataItem;
     });
 }(require));

@@ -22,7 +22,8 @@
   }
 
   updateDataItem('[data item id]')
-  .then(function() {
-    console.log('Updated successfully');
+  .then(function(dataItem) {
+    console.log(`Updated successfully ${dataItem.id}`);
+    return dataItem;
   });
 }(require));

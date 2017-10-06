@@ -25,7 +25,7 @@
               '[group Ids]'
             ],
             firstName: 'string',
-            lastName: 'string',
+            lastName: 'string'
           }
         ]
       }
@@ -54,16 +54,11 @@
 
   createGroup()
     .then(function(group) {
-      console.log('Created group: ' + group.name);      
+      console.log(`Created group: ${group.name}`);      
      
       updateGroupById(group.id);
-      console.log('Updated group: ' + group.name);
+      console.log(`Updated group: ${group.name}`);
 
-      return getGroup(group.id);
-      })
-    .then(function(groupData) {
-      console.log('Retrieved group: ');
-      console.log(groupData);
+      return group;
     });
-
 }(require));

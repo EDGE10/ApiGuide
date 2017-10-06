@@ -27,7 +27,6 @@
     });
   }
 
-  
   /**
    * Updates an existing session specified by sessionId
    */
@@ -53,16 +52,11 @@
 
   createSession()
     .then(function(session) {
-      console.log('Created session: ' + session.sessionDetails.name);      
+      console.log(`Created session: ${session.sessionDetails.name}`);      
       
       updateSessionById(session.sessionDetails.name);
-      console.log('Updated session: ' + session.sessionDetails.name);
-      
-      return getSession(session.sessionDetails.id);
-    })
-    .then(function(sessionData) {
-      console.log('Retrieved session: ');
-      console.log(sessionData);
-    });
+      console.log(`Updated session: ${session.sessionDetails.name}`);
 
+      return session;
+    });
 }(require));

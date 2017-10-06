@@ -26,12 +26,6 @@
     });
   }
 
-  function getSubject(subjectId) {
-    return require({
-      url: '/api/entity/subject/' + subjectId
-    });
-  }
-
   /**
    * Updates the subject data for the subject with an Id of 'subjectId'
    */
@@ -48,16 +42,11 @@
 
   createSubject()
     .then(function(subject) {
-      console.log('Created subject: ' + subject.name);      
+      console.log(`Created subject: ${subject.name}`);      
       
       updateSubjectById(subject.id);
-      console.log('Updated subject: ' + subject.name);
-      
-      return getSubject(subject.id);
-    })
-    .then(function(subjectData) {
-      console.log('Retrieved subject: ');
-      console.log(subjectData);
-    });
+      console.log(`Updated subject: ${subject.name}`);
 
+      return subject;
+    });
 }(require));
