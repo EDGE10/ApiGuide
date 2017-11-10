@@ -3,22 +3,22 @@
 /**
 * Refer to http://testenvironment.edge10hosted.com/swagger/ui/index#!/Entity/getGroups
 */
-(function(require) {
-  var request = require('../edge10-request');
+((require) => {
+	const request = require('../edge10-request');
 
-  /**
-   * Gets all groups that are visible to the authenticated in the system
-   */
-  function getAllGroups() {
-    return request({
-      url: '/api/entity/group'
-    });
-  }
+	/**
+	* Gets all groups that are visible to the authenticated in the system
+	*/
+	const getAllGroups = () => {
+		return request({
+			url: '/api/entity/group'
+		});
+	}
 
-  getAllGroups()
-    .then(function(groups) {
-      groups
-        .map(function(e) { return { name = e.name, description = e.descripton } })
-        .forEach(function(group) { console.log(name + ' ' + description); })
-    });
-}(require));
+	getAllGroups()
+		.then((groups) => {
+			groups
+				.map((e) => { name = e.name, description = e.descripton; })
+				.forEach((group) => { console.log(`${name} ${description}`); });
+		});
+})(require);
